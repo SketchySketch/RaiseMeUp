@@ -25,30 +25,41 @@ Runner.run(runner, engine);
 // Walls
 var roof = Bodies.rectangle(400, 0, 800, 50, {
 	isStatic: false,
+	mass: 3,
+	friction: 0.0001,
 	render: {
 		fillStyle: "#888",
 	},
 });
-roof.mass = 1;
+var scoreArea = Bodies.rectangle(0, 75, 1600, 200, {
+	isStatic: true,
+	collisionFilter: -1,
+	render: {
+		fillStyle: "#4a45"
+	}
+});
 World.add(world, [
-	roof,
 	Bodies.rectangle(400, 600, 800, 50, { isStatic: true }),
-	Bodies.rectangle(800, 300, 30, 600, { isStatic: true }),
-	Bodies.rectangle(0, 300, 30, 600, { isStatic: true }),
+	Bodies.rectangle(800, 300, 30, 600, { isStatic: true, friction: 1 }),
+	Bodies.rectangle(0, 300, 30, 600, { isStatic: true, friction: 1 }),
+	roof,
+	scoreArea,
 ]);
 
 // Bodies
 var left = Bodies.rectangle(200, 550, 400, 50, {
+		friction: 1,
 		render: {
 			fillStyle: "#29e",
 		},
 	}),
 	right = Bodies.rectangle(600, 550, 400, 50, {
+		friction: 1,
 		render: {
 			fillStyle: "#f0c",
 		},
 	}),
-	ball = Bodies.circle(400, 100, 50);
+	ball = Bodies.circle(400, 100, 50, { friction: 0.0001 });
 World.add(world, [left, right, ball]);
 
 // Manipulate
@@ -71,5 +82,10 @@ document.body.onkeydown = (e) => {
 // Score
 var score = 0;
 Events.on(engine, "beforeUpdate", (e) => {
-	if (ball.position.y < 100) score += 0.1;
+	if (ball.position.y < 150) {
+		score += 0.1;
+		ball.render.fillStyle = "#4fa"
+	} else {
+		ball.render.fillStyle = "#f44"
+	}
 });
