@@ -88,4 +88,5 @@ Events.on(engine, "beforeUpdate", (e) => {
 	} else {
 		ball.render.fillStyle = "#f44"
 	}
+	if (! (0 < ball.position.x < 800)) alert("The ball fell out! Refresh and restart!")
 });
