@@ -1,14 +1,23 @@
 {
-  "name": "pinball",
-  "version": "1.0.0",
-  "description": "",
+  "name": "raise-me-up",
+  "version": "2.0.0",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "SketchySketch",
   "license": "UNLICENSED",
   "dependencies": {
     "matter-js": "^0.14.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SketchySketch/RaiseMeUp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SketchySketch/RaiseMeUp/issues"
+  },
+  "homepage": "https://github.com/SketchySketch/RaiseMeUp#readme",
+  "description": ""
 }
